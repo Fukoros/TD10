@@ -32,9 +32,11 @@
 
       if (ocifetchinto($ordreNB, $ligne)){
         echo "idv : ".$ligne[0]." prix : ".$ligne[1]." activite : ".$ligne[2];
-        $ordreIDS = ociparse($c, ":l_ids := seq_sejour.nextval");
-        ocibindbyname($ordreIDS, ":l_ids", $l_ids);
-        echo $l_ids;
+
+        $textReqNEXTVAL  = ":ids := seq_sejour.nextval";
+        $ordreIDS = ociparse($c, $textReqNEXTVAL);
+        ocibindbyname($ordreIDS, ":ids", $ids);
+        echo '<br>'.$l_ids;
 
       } else {
         echo "Pas trouve !";
