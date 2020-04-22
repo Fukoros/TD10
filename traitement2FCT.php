@@ -21,7 +21,7 @@
 
       $texteReqNB = "
       begin traitement2(".
-        $l_id.",".
+        $l_id.","
         ."'".$la_ville."',".
         $le_jour.",
         :l_idv,
