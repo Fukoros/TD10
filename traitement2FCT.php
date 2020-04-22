@@ -23,7 +23,7 @@
       begin traitement2(".
         $l_id.",".
         $la_ville.",".
-        $le_jour."
+        $le_jour.",
         :l_idv,
         :l_ids,
         :l_activite); end;";
