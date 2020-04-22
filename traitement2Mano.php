@@ -31,13 +31,14 @@
       ociexecute($ordreNB);
 
       if (ocifetchinto($ordreNB, $ligne)){
-        echo "idv : ".$ligne[0]." prix : ".$ligne[1]." activite : ".$ligne[2];
-
         $textReqNEXTVAL  = "begin :ids := seq_sejour.nextval; end;";
         $ordreIDS = ociparse($c, $textReqNEXTVAL);
         ocibindbyname($ordreIDS, ":ids", $ids);
         ociexecute($ordreIDS);
-        echo '<br>'.$ids;
+
+        $texteReqInsert = "INSERT INTO sejour
+                           values (".$ids.",'".$l_id."',".$ligne[0].",".$le_jour" )";
+        echo "<br>".$texteReqInsert;
 
       } else {
         echo "Pas trouve !";
