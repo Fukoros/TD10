@@ -28,15 +28,15 @@
 
       $ordreNB = ociparse($c, $texteReqNB);
 
-      if (ocifetchinto($ordre, $ligne)){
+      ociexecute($ordreNB);
+
+      if (ocifetchinto($ordreNB, $ligne)){
         echo "idv : ".$ligne[0]." prix : ".$ligne[1]." activite : ".$ligne[2];
       } else {
         echo "Pas trouve !";
       }
 
-      ociexecute($ordreNB);
-
-      echo "<br> Valeurs renvoyé : IDV = ".$idv." | IDS = ".$ids." | Acti = ".$acti;
+      ocilogoff($c);
      ?>
 
   </body>
