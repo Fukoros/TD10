@@ -36,7 +36,8 @@
         $textReqNEXTVAL  = ":ids := seq_sejour.nextval";
         $ordreIDS = ociparse($c, $textReqNEXTVAL);
         ocibindbyname($ordreIDS, ":ids", $ids);
-        echo '<br>'.$l_ids;
+        ociexecute($ordreIDS);
+        echo '<br>'.$ids;
 
       } else {
         echo "Pas trouve !";
