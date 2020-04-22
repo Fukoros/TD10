@@ -8,6 +8,8 @@
 
     <?php
 
+      $l_id = $_POST['id'];
+      $la_ville = $_POST['ville'];
       $le_jour = $_POST['day'];
 
       $c = ocilogon('c##tsoular_a', 'tsoular_a', 'dbinfo');
@@ -17,26 +19,24 @@
         return;
       }
 
-      $texteReqNB = "select count(*)
-        from sejour
-        where jour < ".$le_jour;
+      $texteReqNB = "
+      begin traitement2(".
+        $l_id.",".
+        $la_ville.",".
+        $le_jour."
+        :l_idv,
+        :l_ids,
+        :l_activite; end;";
 
       $ordreNB = ociparse($c, $texteReqNB);
 
+      ocibindbyname($ordre, ':l_idv', $idv);
+      ocibindbyname($ordre, ':l_ids', $ids);
+      ocibindbyname($ordre, ':l_activite', $acti);
+
       ociexecute($ordreNB);
 
-      if (ocifetchinto($ordreNB, $ligne)){
-        echo $ligne[0];
-      }
-
-    $texteReqDelet = "delete sejour
-        where jour < ".$le_jour;
-
-      $ordreDelet = ociparse($c, $texteReqDelet);
-
-      ociexecute($ordreDelet);
-
-      ocilogoff($c);
+      echo "<br> Valeurs renvoyé : IDV = ".$idv." | IDS = ".$ids." | Acti = ".$acti;
      ?>
 
   </body>
