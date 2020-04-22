@@ -40,7 +40,7 @@
         ociexecute($ordreInsert);
 
         $testReqUpdate = "UPDATE CLIENT
-                          SET avoir = avoir " -$ligne[1]."
+                          SET avoir = avoir -".$ligne[1]."
                           WHERE idc = ".$l_id;
         $ordreUpdate = ociparse($c, $testReqUpdate);
         ociexecute($ordreUpdate);
