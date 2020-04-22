@@ -30,9 +30,9 @@
 
       $ordreNB = ociparse($c, $texteReqNB);
 
-      ocibindbyname($ordre, ':l_idv', $idv);
-      ocibindbyname($ordre, ':l_ids', $ids);
-      ocibindbyname($ordre, ':l_activite', $acti);
+      ocibindbyname($ordreNB, ':l_idv', $idv);
+      ocibindbyname($ordreNB, ':l_ids', $ids);
+      ocibindbyname($ordreNB, ':l_activite', $acti);
 
       ociexecute($ordreNB);
 
