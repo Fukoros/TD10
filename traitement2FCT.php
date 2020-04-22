@@ -28,6 +28,8 @@
         :l_ids,
         :l_activite); end;";
 
+      echo $texteReqNB."<br>";
+
       $ordreNB = ociparse($c, $texteReqNB);
 
       ocibindbyname($ordreNB, ':l_idv', $idv);
