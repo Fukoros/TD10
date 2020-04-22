@@ -22,7 +22,7 @@
       $texteReqNB = "SELECT idv, prix, activite
                      FROM village
                      WHERE ville = '".$la_ville."'
-                     ORDER BY prix desc;";
+                     ORDER BY prix desc";
 
       echo $texteReqNB."<br>";
 
