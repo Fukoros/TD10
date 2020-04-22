@@ -26,7 +26,7 @@
         $le_jour."
         :l_idv,
         :l_ids,
-        :l_activite; end;";
+        :l_activite); end;";
 
       $ordreNB = ociparse($c, $texteReqNB);
 
