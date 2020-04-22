@@ -40,13 +40,13 @@
         ociexecute($ordreInsert);
 
         $testReqUpdate = "UPDATE CLIENT
-                          SET avoir = ".$ligne[1]-$ligne[2]."
+                          SET avoir = avoir " -$ligne[1]."
                           WHERE idc = ".$l_id;
         $ordreUpdate = ociparse($c, $testReqUpdate);
         ociexecute($ordreUpdate);
 
         echo '<br> ID = '.$l_id.' VILLE = '.$la_ville.' JOUR = '.$le_jour.' IDV = '.$ligne[0].
-              ' PRIX '.$ligne[1].' ACTIVITE '.$ligne[2];
+              ' PRIX = '.$ligne[1].' ACTIVITE = '.$ligne[2];
 
       } else {
         echo "Pas trouve !";
