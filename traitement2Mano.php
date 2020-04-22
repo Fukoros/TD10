@@ -36,9 +36,9 @@
         ocibindbyname($ordreIDS, ":ids", $ids);
         ociexecute($ordreIDS);
 
-        $texteReqInsert = "INSERT INTO sejour
-                           values (".$ids.",'".$l_id."',".$ligne[0].",".$le_jour" )";
-        echo "<br>".$texteReqInsert;
+        // $texteReqInsert = "INSERT INTO sejour
+        //                    values (".$ids.",'".$l_id."',".$ligne[0].",".$le_jour" )";
+        echo "<br>"."(".$ids.",'".$l_id."',".$ligne[0].",".$le_jour" )";
 
       } else {
         echo "Pas trouve !";
