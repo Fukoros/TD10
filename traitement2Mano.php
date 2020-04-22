@@ -38,6 +38,8 @@
 
         $texteReqInsert = "INSERT INTO sejour
                            values (".$ids.",'".$l_id."',".$ligne[0].",".$le_jour." )";
+        $ordreInsert = ociparse($c, $texteReqInsert);
+        ociexecute($ordreInsert);
 
       } else {
         echo "Pas trouve !";
