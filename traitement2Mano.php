@@ -33,7 +33,7 @@
       if (ocifetchinto($ordreNB, $ligne)){
         echo "idv : ".$ligne[0]." prix : ".$ligne[1]." activite : ".$ligne[2];
 
-        $textReqNEXTVAL  = ":ids := seq_sejour.nextval";
+        $textReqNEXTVAL  = "begin :ids := seq_sejour.nextval; end;";
         $ordreIDS = ociparse($c, $textReqNEXTVAL);
         ocibindbyname($ordreIDS, ":ids", $ids);
         ociexecute($ordreIDS);
